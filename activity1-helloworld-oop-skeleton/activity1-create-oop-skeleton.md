@@ -27,4 +27,12 @@
 6. Stop the alfresco environment with command by entering CTRL+C in Terminal.
 7. Use docker command ```docker compose down``` to remove containers.
 
-8. 
+## Define a Maven Project
+1. Create a new folder called ```oop-hello-world``` in the directory created in *initial steps*.
+2. In terminal *cd* into that directory.
+3. To create a Maven project, run the command: ```mvn archetype:generate  -DarchetypeArtifactId=maven-archetype-quickstart```. The Maven creator will ask a series of questions. Choose the options below.
+   - Group ID: ```org.alfresco```
+   - Artifact ID: ```oop-hello-world```
+   - Version: ```0.8```
+   - ```Y```
+        * This will create a folder with a POM file.
