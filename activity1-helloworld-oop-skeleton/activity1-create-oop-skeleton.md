@@ -34,5 +34,7 @@
    - Group ID: ```org.alfresco```
    - Artifact ID: ```oop-hello-world```
    - Version: ```0.8```
+   - Package ID: ```oop-hello-world```
    - ```Y```
-        * This will create a folder with a POM file.
+        * This will create a folder with a POM file and Java folder structure.
+   
