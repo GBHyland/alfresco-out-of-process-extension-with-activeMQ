@@ -108,10 +108,10 @@
     - ```import org.springframework.boot.SpringApplication;```
     - You may need to add the Maven dependency. Roll over each import and choose from the actions menu. In the popup window, select **Search for Class**, then **Try updating Maven indexes**.
 13. Add the next few imports below.
-```
-   import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-   import org.springframework.boot.autoconfigure.SpringBootApplication;
-   import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
-```
+      ```
+         import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+         import org.springframework.boot.autoconfigure.SpringBootApplication;
+         import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+      ```
     - Add Maven dependencies if necessary.
 14. 
