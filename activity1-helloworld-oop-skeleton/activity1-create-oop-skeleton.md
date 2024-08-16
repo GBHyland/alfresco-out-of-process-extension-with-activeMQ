@@ -37,4 +37,10 @@
    - Package ID: ```oop-hello-world```
    - ```Y```
         * This will create a folder with a POM file and Java folder structure.
-   
+4. In your JDE, select **File > Open** and navigate to the POM.xml file created in the previous step. Once selected, press the **Open as Project** button on the next popup.
+5. Open the POM file by selecting from the left heirarchy panel.
+6. Copy the below XML code and paste over ALL of the code in your POM file.
+7. ```
+Enter code here
+   ```
+8. 
