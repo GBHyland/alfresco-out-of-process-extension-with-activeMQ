@@ -34,13 +34,22 @@
    - Group ID: ```org.alfresco```
    - Artifact ID: ```oop-hello-world```
    - Version: ```0.8```
-   - Package ID: ```oop-hello-world```
+   - Package ID: _press ENTER_
    - ```Y```
         * This will create a folder with a POM file and Java folder structure.
 4. In your JDE, select **File > Open** and navigate to the POM.xml file created in the previous step. Once selected, press the **Open as Project** button on the next popup.
 5. Open the POM file by selecting from the left heirarchy panel.
-6. Copy the below XML code and paste over ALL of the code in your POM file.
-7. ```
-Enter code here
-   ```
-8. 
+6. Copy the below XML code and replace the code in your POM file.
+   - ```Enter code here```
+8. Create a new directoryun the _main_ folder titled: ```resources```.
+9. Create a new file in the _resources_ folder named: ```application.properties```.
+10. Paste the following code into the _application.properties_ file.
+    - ```get code from >```
+11. Open the _App.java_ file located in the dir: _src > main > java > org.alfresco_.
+12. Add the first spring famework import. Add the lines below.
+    - ``` add first import here ```
+    - You may need to add the Maven dependency. Roll over each import and choose from the actions menu. In the popup window, select **Search for Class**, then **Try updating Maven indexes**.
+13. Add the next few imports below.
+    - ``` add 3 imports ```
+    - Add Maven dependencies if necessary.
+14. 
