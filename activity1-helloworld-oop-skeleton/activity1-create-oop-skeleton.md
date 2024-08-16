@@ -40,7 +40,7 @@
 4. In your JDE, select **File > Open** and navigate to the POM.xml file created in the previous step. Once selected, press the **Open as Project** button on the next popup.
 5. Open the POM file by selecting from the left heirarchy panel.
 6. Copy the below XML code and replace the code in your POM file.
-   - ```<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   - ``` <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
@@ -91,7 +91,7 @@
       </plugin>
     </plugins>
   </build>
-</project>```
+</project> ```
 8. Create a new directory in the _main_ folder titled: ```resources```.
 9. Create a new file in the _resources_ folder named: ```application.properties```.
 10. Paste the following code into the _application.properties_ file.
