@@ -40,59 +40,59 @@
 4. In your JDE, select **File > Open** and navigate to the POM.xml file created in the previous step. Once selected, press the **Open as Project** button on the next popup.
 5. Open the POM file by selecting from the left heirarchy panel.
 6. Copy the below XML code and replace the code in your POM file.
-   ```
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-<modelVersion>4.0.0</modelVersion>
-
-<parent>
- <groupId>org.springframework.boot</groupId>
- <artifactId>spring-boot-starter-parent</artifactId>
- <version>3.3.2</version>
- <relativePath/>
-</parent>
-
-<groupId>org.alfresco</groupId>
-<artifactId>oop-hello-world</artifactId>
-<packaging>jar</packaging>
-<version>0.8</version>
-<name>oop-hello-world</name>
-<url>http://maven.apache.org</url>
-<properties>
- <maven.compiler.source>17</maven.compiler.source>
- <maven.compiler.target>17</maven.compiler.target>
- <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-</properties>
-<repositories>
- <repository>
-   <id>alfresco-public</id>
-   <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
- </repository>
-</repositories>
-<dependencies>
- <dependency>
+```
+   <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   
+   <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.3.2</version>
+    <relativePath/>
+   </parent>
+   
    <groupId>org.alfresco</groupId>
-   <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
-   <version>6.2.0</version>
- </dependency>
- <dependency>
-   <groupId>org.springframework.boot</groupId>
-   <artifactId>spring-boot-starter</artifactId>
- </dependency>
-</dependencies>
-<build>
- <plugins>
-   <plugin>
-     <groupId>org.apache.maven.plugins</groupId>
-     <artifactId>maven-compiler-plugin</artifactId>
-   </plugin>
-   <plugin>
-     <groupId>org.springframework.boot</groupId>
-     <artifactId>spring-boot-maven-plugin</artifactId>
-   </plugin>
- </plugins>
-</build>
-</project> 
+   <artifactId>oop-hello-world</artifactId>
+   <packaging>jar</packaging>
+   <version>0.8</version>
+   <name>oop-hello-world</name>
+   <url>http://maven.apache.org</url>
+   <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   </properties>
+   <repositories>
+    <repository>
+      <id>alfresco-public</id>
+      <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
+    </repository>
+   </repositories>
+   <dependencies>
+    <dependency>
+      <groupId>org.alfresco</groupId>
+      <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
+      <version>6.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+   </dependencies>
+   <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+   </build>
+   </project> 
 ```
 8. Create a new directory in the _main_ folder titled: ```resources```.
 9. Create a new file in the _resources_ folder named: ```application.properties```.
