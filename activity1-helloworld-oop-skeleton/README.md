@@ -114,4 +114,43 @@
          import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
       ```
     - Add Maven dependencies if necessary.
-14. 
+14. Add the following lines to your *App.jva* file before the class.
+       ```
+         @SpringBootApplication
+         @EnableAutoConfiguration(exclude={SecurityAutoConfiguration.class})
+       ```
+15. Inside the class function, paste the following code over the default code:
+       ```
+         public static void main( String[] args )
+          {
+              SpringApplication.run(App.class, args);
+          }
+       ```
+16. Create a new Java file titled ```NodeCreatedhandler``` in the following directory: ``` src > main > java > org.alfresco > handler ```.
+17. Paste the following code into the **NodeCreatedhandler** java file:
+       ```
+         package org.alfresco.handler;
+
+         import org.alfresco.event.sdk.handling.handler.OnNodeCreatedEventHandler;
+         import org.alfresco.repo.event.v1.model.*;
+         import org.springframework.stereotype.Component;
+         
+         @Component
+         public class NodeCreatedhandler implements OnNodeCreatedEventHandler {
+             @Override
+             public void handleEvent(RepoEvent<DataAttributes<Resource>> event) {
+                 final NodeResource nodeResource = (NodeResource) event.getData().getResource();
+                 System.out.println("Hello World! "+nodeResource.getName());
+             }
+         }
+
+       ```
+18. Save all edited files. The skeleton environment is now ready to test.
+19. In Terminal, start your alfresco environment using the docker command: ```docker compose up```.
+20. In your JDE, open a Terminal window and perform the following steps to package and run:
+    * Create a Java package using the command: ```mvn package```.
+    * Run the Java package with the command: ```java -jar target/oop-*.jar```
+21. Open your browser to your alfreco environment at: ```http://localhost:8080/share```.
+22. Navigate to the **shared files** section and create a text document.
+    * Watch the output Terminal window in your JDE which should print the messsage: ```Hello World! [your_file_name]```.
+    
