@@ -1,8 +1,8 @@
 # Create an Alfresco Out-of-Process Skeleton (Hello World)
 
 ## Initial Steps
-1. Create a directory on your local machine for this exercise
-2. Download the *Community* and *Enterprise* folders to that directory (from this git)
+1. Create a directory on your local machine for this exercise.
+2. Download the *Community* and *Enterprise* folders to that directory (above).
 
 ## Create a Community Edition environment
 1. In Terminal, navigate to the *community* folder downloaded from initial steps.
