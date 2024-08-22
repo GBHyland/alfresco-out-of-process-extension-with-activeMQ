@@ -140,7 +140,7 @@
          import org.springframework.stereotype.Component;
          
          @Component
-         public class NodeCreatedhandler implements OnNodeCreatedEventHandler {
+         public class NodeCreatedHandler implements OnNodeCreatedEventHandler {
              @Override
              public void handleEvent(RepoEvent<DataAttributes<Resource>> event) {
                  final NodeResource nodeResource = (NodeResource) event.getData().getResource();
