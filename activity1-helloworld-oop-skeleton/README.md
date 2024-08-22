@@ -129,7 +129,7 @@
           }
        ```
 16. Create the _NodeCreatedHandler_.
-    * Create a new directory called **handler** at the following location: _src > java > org.alfresco > handler_.
+    * Create a new package called **handler** at the following location: _src > java > org.alfresco > handler_ using the right-click menu and selecting "new package".
     * Create a new Java file titled ```NodeCreatedHandler``` inside the following _handler_ directory.
 18. Paste the following code into the **NodeCreatedHandler** java file:
        ```
