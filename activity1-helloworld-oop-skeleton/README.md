@@ -94,6 +94,7 @@
          </build>
          </project> 
       ```
+   * Right-click the POM.xml file in the left heirarchy and select ```Maven > Reload project```.
 8. Create a new directory in the _main_ folder titled: ```resources```.
 9. Create a new file in the _resources_ folder named: ```application.properties```.
 10. Paste the following code into the _application.properties_ file.
