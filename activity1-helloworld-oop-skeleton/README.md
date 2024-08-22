@@ -95,6 +95,7 @@
          </project> 
       ```
    * Right-click the POM.xml file in the left heirarchy and select ```Maven > Reload project```.
+   * Delete the **App.Test** file located at: _src > test > java > org.alfresco_.
 8. Create a new directory in the _main_ folder titled: ```resources```.
 9. Create a new file in the _resources_ folder named: ```application.properties```.
 10. Paste the following code into the _application.properties_ file.
