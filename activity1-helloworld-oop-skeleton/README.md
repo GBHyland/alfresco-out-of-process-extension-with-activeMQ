@@ -128,8 +128,10 @@
               SpringApplication.run(App.class, args);
           }
        ```
-16. Create a new Java file titled ```NodeCreatedhandler``` in the following directory: ``` src > main > java > org.alfresco > handler ```.
-17. Paste the following code into the **NodeCreatedhandler** java file:
+16. Create the _NodeCreatedHandler_.
+    * Create a new directory called **handler** at the following location: _src > java > org.alfresco > handler_.
+    * Create a new Java file titled ```NodeCreatedHandler``` inside the following _handler_ directory.
+18. Paste the following code into the **NodeCreatedhandler** java file:
        ```
          package org.alfresco.handler;
 
@@ -147,12 +149,12 @@
          }
 
        ```
-18. Save all edited files. The skeleton environment is now ready to test.
-19. In Terminal, start your alfresco environment using the docker command: ```docker compose up```.
-20. In your JDE, open a Terminal window and perform the following steps to package and run:
+19. Save all edited files. The skeleton environment is now ready to test.
+20. In Terminal, start your alfresco environment using the docker command: ```docker compose up```.
+21. In your JDE, open a Terminal window and perform the following steps to package and run:
     * Create a Java package using the command: ```mvn package```.
     * Run the Java package with the command: ```java -jar target/oop-*.jar```
-21. Open your browser to your alfreco environment at: ```http://localhost:8080/share```.
-22. Navigate to the **shared files** section and create a text document.
+22. Open your browser to your alfreco environment at: ```http://localhost:8080/share```.
+23. Navigate to the **shared files** section and create a text document.
     * Watch the output Terminal window in your JDE which should print the messsage: ```Hello World! [your_file_name]```.
     
