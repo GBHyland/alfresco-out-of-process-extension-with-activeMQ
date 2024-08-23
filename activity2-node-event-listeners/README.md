@@ -105,7 +105,22 @@ For this activity, you must use **your environment from the end state of activit
 * Stop the Java application by using ```CTRL+C``` inside the Terminal window.
 
 ### Apply a Comment action to documents edited by users other than their creator
-* Add the following imports that will allow the usage of Comments in the Java class:
+* Add the following dependencies to your pom.xml file in the dependencies section:
+  ```
+    <dependency>
+      <groupId>org.alfresco</groupId>
+      <artifactId>alfresco-acs-java-rest-api-spring-boot-starter</artifactId>
+      <version>6.2.0</version>
+    </dependency>
+  ```
+* Reload the pom.xml file by right-clicking and selcting: _Maven > Reload project_. (This may take a few minutes).
+* Open the _aaplication.properties_ file and add the following lines of code:
+  ```
+    content.service.url=http://localhost:8080
+    content.service.security.basicAuth.username=admin
+    content.service.security.basicAuth.password=admin
+  ```
+* Go back to your _NodeUpdatedHandler.java_ file and add the following imports that will allow the usage of Comments in the Java class:
   ```
     import org.alfresco.core.handler.CommentsApi;
     import org.alfresco.core.model.CommentBody;
