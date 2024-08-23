@@ -18,7 +18,9 @@ For this activity, you must use **your environment from the end state of activit
   ```
 * Change the class function to this:
   ```
+    public class NodeUpdatedHandler implements OnNodeUpdatedEventHandler {
 
+    }
   ```
 * You may need to implement the methods for this class by holding the mouse cursoer over the implement statement and select _Implement methods_ from the popup (implement the handle event).
 * Add ```@Component``` just before the class statement.
