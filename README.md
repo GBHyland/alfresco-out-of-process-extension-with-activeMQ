@@ -5,8 +5,8 @@
 2. IntelliJ Software (JDE Environment) - (https://www.jetbrains.com/idea/download)
 
 ### Get acces to Trial Alfresco Quay.io credentials
-1. Visit the following url and submit the form:
+* Visit the following url and submit the form. Provide an email address you can access. Quay.io trial credentials will be emailed to the address you provide.
    ```
      https://www.hyland.com/en/resources/alfresco-ecm-download
    ```
-2. A trial license should be emailed to the email you provided.
+   
