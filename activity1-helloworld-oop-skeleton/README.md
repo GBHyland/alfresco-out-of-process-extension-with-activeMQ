@@ -160,7 +160,7 @@
          import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
       ```
     - Add Maven dependencies if necessary.
-23. Add the following lines to your *App.jva* file before the class.
+23. Add the following lines to your *App.java* file before the class.
       ```
       @SpringBootApplication
       @EnableAutoConfiguration(exclude={SecurityAutoConfiguration.class})
@@ -172,9 +172,9 @@
            SpringApplication.run(App.class, args);
        }
       ```
-25. Create the _NodeCreatedHandler_.
-    * Create a new package called **handler** at the following location: _src > java > org.alfresco > handler_ using the right-click menu and selecting "new package".
-    * Create a new Java file titled ```NodeCreatedHandler``` inside the following _handler_ directory.
+25. Create the _NodeCreatedHandler_ Java class by performaing the following steps:
+    * Create a new package called **handler** at the following location: _src > java > org.alfresco > handler_ by right-clicking the _org.alfresco_ item in the left menu and selecting "new package". Name it ```org.alfresco.handler```.
+    * Create a new Java Class titled ```NodeCreatedHandler``` inside the following _handler_ directory by right-clicking the _handler_ package and choosing **New > Java Class*. 
 26. Paste the following code into the **NodeCreatedHandler** java file:
       ```
       package org.alfresco.handler;
