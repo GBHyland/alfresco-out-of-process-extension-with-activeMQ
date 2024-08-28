@@ -47,12 +47,16 @@
 8. Delete all of the file contents.
 9. Add the following line of code:
       ```
-            <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-            
-            
-            
-            </project>
+         <!--
+         The POM or Project Object Model file is fundamental in defines the project configuration details used by Maven.
+         It contains the default values for your project as well as necessary information, like parent, dependencies, and build profile.
+         -->
+         <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         
+         
+         
+         </project>
       ```
 10. Add the project name, groupId, artifactId, version and modelVersion **inside** the <project> tag.
       ```
