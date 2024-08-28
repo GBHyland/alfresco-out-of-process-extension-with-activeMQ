@@ -30,16 +30,20 @@
 ## Create a Maven Project
 1. Create a new folder called ```oop-hello-world``` in the directory created in *initial steps*.
 2. In terminal *cd* into that directory.
-3. To create a Maven project, run the command: ```mvn archetype:generate  -DarchetypeArtifactId=maven-archetype-quickstart```. The Maven creator will ask a series of questions. Choose the options below.
+3. To create a Maven project, run the command:
+   ```
+      mvn archetype:generate  -DarchetypeArtifactId=maven-archetype-quickstart
+   ```
+   - The Maven creator will ask a series of questions. Choose the options below:
    - Group ID: ```org.alfresco```
    - Artifact ID: ```oop-hello-world```
    - Version: ```0.8```
    - Package ID: _press ENTER_
    - ```Y```
         * This will create a folder with a POM file and Java folder structure.
-4. In your JDE, select **File > Open** and navigate to the POM.xml file created in the previous step. Once selected, press the **Open as Project** button on the next popup.
-5. Open the POM file by selecting from the left heirarchy panel.
-6. Copy the below XML code and replace the code in your POM file.
+5. In your JDE, select **File > Open** and navigate to the POM.xml file created in the previous step. Once selected, press the **Open as Project** button on the next popup.
+6. Open the POM file by selecting from the left heirarchy panel.
+7. Copy the below XML code and replace the code in your POM file.
       ```
          <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
