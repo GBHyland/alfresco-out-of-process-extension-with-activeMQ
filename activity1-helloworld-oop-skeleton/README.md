@@ -127,9 +127,20 @@
 17. Create a new file in the _resources_ folder named: ```application.properties```.
 18. Paste the following code into the _application.properties_ file.
       ```
+         # Application.properties defines configuration which is required to run the application in a different environment.
+         # Each environment will have a different properties needing to be defines.
+         
+         # Specify where the Alfresco Active MQ JMS Broker is running
          spring.activemq.brokerUrl=tcp://localhost:61616
+         
+         # This property is required if you want Spring Boot to auto-define the ActiveMQConnectionFactory.
+         # otherwise you can define that bean in Spring config
          spring.jms.cache.enabled=false
-         alfresco.events.enableSpringIntegration=false
+         
+         # Enable Spring Integration based event handlers
+         alfresco.events.enableSpringIntegration=true
+         
+         # Turn off plain Java event handlers
          alfresco.events.enableHandlers=true
       ```
 19. Open the _App.java_ file located in the dir: _src > main > java > org.alfresco_.
