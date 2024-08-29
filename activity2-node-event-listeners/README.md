@@ -116,7 +116,10 @@ For this activity, you must use **your environment from the end state of activit
 * Reload the pom.xml file by right-clicking and selcting: _Maven > Reload project_. (This may take a few minutes).
 * Open the _aaplication.properties_ file and add the following lines of code:
   ```
+    # Location of the server and API endpoints
     content.service.url=http://localhost:8080
+    
+    # HTTP Basic Authentication that will be used by the API
     content.service.security.basicAuth.username=admin
     content.service.security.basicAuth.password=admin
   ```
@@ -136,7 +139,7 @@ For this activity, you must use **your environment from the end state of activit
     commentBody.setContent("Edited by user: "+nodeResource.getModifiedByUser().getId());
     commentsApi.createComment(nodeResource.getId(), commentBody, null);
   ```
-* **Note:** The actioins here will create a new comment on the document with the following text: _"edited by user: [user name]"_.
+* **Note:** The actions here will create a new comment on the document with the following text: _"edited by user: [user name]"_.
 
 ### Deploy the Java App and test the Comment action execution 
 *  Add the following "print" command inside the new "if" statement to print a message to the Terminal:
