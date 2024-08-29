@@ -142,7 +142,7 @@
          spring.jms.cache.enabled=false
          
          # Enable Spring Integration based event handlers
-         alfresco.events.enableSpringIntegration=true
+         alfresco.events.enableSpringIntegration=false
          
          # Turn off plain Java event handlers
          alfresco.events.enableHandlers=true
