@@ -28,8 +28,12 @@
    ```
 
 ### Run Enterprise, Build & Test Java Application
-1. Visit the following url and submit the form. Provide an email address you can access. Quay.io trial credentials will be emailed to the address you provide.
-   ```
-     https://www.hyland.com/en/resources/alfresco-ecm-download
-   ```
+1. In your JDE, open a Terminal window and perform the following steps to package and run:
+    * Create a Java package using the command: ```mvn package```.
+    * Run the Java package with the command: ```java -jar target/oop-*.jar```
+2. Open your browser to your alfreco environment at: ```http://localhost:8080/share```.
+3. Navigate to the **shared files** section and create a text document.
+    * Notice in the output Terminal window in your JDE you should see a a log from the **EventGenericTransformer** which will include the following properties:
+      * **resourceReaderAuthroities** and **resourceDeniedAuthorities**.
+    * This is the difference between the enterprise and community ActiveMQ messages, which provides informatioin of who has and does not have access to the node.
    
