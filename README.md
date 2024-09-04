@@ -13,9 +13,3 @@
 5. Maven installed on your machine:
    * https://www.baeldung.com/install-maven-on-windows-linux-mac
 
-### Get acces to Trial Alfresco Quay.io credentials
-* Visit the following url and submit the form. Provide an email address you can access. Quay.io trial credentials will be emailed to the address you provide.
-   ```
-     https://www.hyland.com/en/resources/alfresco-ecm-download
-   ```
-   
