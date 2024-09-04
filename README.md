@@ -14,14 +14,14 @@
    * Steps to install Maven:
      1. In terminal window enter the following command:
         ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         ```
     2. in the feedback of the Brew installation find the two commands under the **Next Steps:** header and enter each one of those commands into Terminal.
     3. Enter the final command to install Maven:
     ```
-brew install maven
+      brew install maven
     ```
     4. To check that Maven is installed, enter the following command:
     ```
-mvn -version
+      mvn -version
     ```
