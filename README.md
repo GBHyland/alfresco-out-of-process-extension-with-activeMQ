@@ -10,9 +10,12 @@
 3. IntelliJ Software (JDE Environment) - (https://www.jetbrains.com/idea/download)
 4. Java installed on your machine: 
    * https://www.oracle.com/java/technologies/downloads/?er=221886#jdk22-mac
-5. Maven installed on your machine:
-   * Steps to install Maven:
-     1. In terminal window enter the following command:
+   * To check if Java is installed enter the following command in Terminal:
+     ```
+        java -version
+     ```
+5. Maven installed on your machine. (Follow these steps to install - **Note:** Java must be installed first.)
+    1. In terminal window enter the following command:
         ```
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         ```
