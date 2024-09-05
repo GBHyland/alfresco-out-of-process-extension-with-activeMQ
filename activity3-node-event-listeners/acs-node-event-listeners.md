@@ -1,117 +1,169 @@
-# Create an Alfresco Out-of-Process Skeleton (Hello World)
+# Create a Node Event Listener Project
 
 ## Initial Steps
-1. Create a directory on your local machine for this exercise
-2. Download the *Community* and *Enterprise* folders to that directory (from this git)
+For this activity, you must use **your environment from the end state of activity 1 from this git project** or **download and extract the _finished-state.zip_ project linked here: https://github.com/GBHyland/alfresco-out-of-process-extension-with-activeMQ/blob/main/activity1-helloworld-oop-skeleton/completed-state.zip**.
+* If using the zip file, complete the next section _(Steps to start from zip file)_ steps.
 
-## Create a Community Edition environment
-1. In Terminal, navigate to the *community* folder downloaded from initial steps.
-   - The folder should have a _compose.yaml_ file. Use ```ls``` command to ensure file is present. 
-3. Run docker command ```docker compose up```
-   - Docker will created containers and download all necessary images.
-   - First time running this command may take a few moments.
-4. Test alfresco is running by opening a browser window at address: ```http://localhost:8080/alfresco```
-5. Connect to ActiveMQ using browser at address: ```http://localhost:8161```
-6. Stop the alfresco environment with command by entering CTRL+C in Terminal.
-7. Use docker command ```docker compose down``` to remove containers.
+### Steps to start from the zip file.
+* Download and extract the zip archive linked above to an accessible location.
+* In your JDE, select **File > Open** and navigate to the POM.xml file created in the previous step. Once selected, press the **Open as Project** button on the next popup.
+* When the project is opened and any dependency errors are resolved, continue to the next section _(Create a _NodeUpdatedHandler_ Java Class)_.
 
-## Create an Enterprise Edition environment
-1. In Terminal, navigate to the *enterprise* folder downloaded from initial steps.
-   - The folder should have a _compose.yaml_ file. Use ```ls``` command to ensure file is present. 
-3. Run docker command ```docker compose up```
-   - Docker will created containers and download all necessary images.
-   - First time running this command may take a few moments.
-   - *Note:* You may see some errors in terminal due to indexing component being removed from the yaml file (not necessary for this activity).
-4. Test alfresco is running by opening a browser window at address: ```http://localhost:8080/alfresco```
-5. Connect to ActiveMQ using browser at address: ```http://localhost:8161```
-6. Stop the alfresco environment with command by entering CTRL+C in Terminal.
-7. Use docker command ```docker compose down``` to remove containers.
+## Create a _NodeUpdatedHandler_ Java Class
+### Imports and Implements
+* Create a new Java class file titled ```NodeUpdatedHandler``` in the following path: _src > main > java > org.alfresco > handler_.
+* Add the following imports:
+  ```
+    import org.alfresco.core.handler.CommentsApi;
+    import org.alfresco.core.model.CommentBody;
+    import org.alfresco.event.sdk.handling.filter.EventFilter;
+    import org.alfresco.event.sdk.handling.filter.IsFileFilter;
+    import org.alfresco.event.sdk.handling.handler.OnNodeUpdatedEventHandler;
+    import org.alfresco.repo.event.v1.model.*;
+    import org.slf4j.Logger;
+    import org.slf4j.LoggerFactory;
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.stereotype.Component;
+    import java.util.Set;
+  ```
+* Change the class function to this:
+  ```
+    public class NodeUpdatedHandler implements OnNodeUpdatedEventHandler {
 
-## Define a Maven Project
-1. Create a new folder called ```oop-hello-world``` in the directory created in *initial steps*.
-2. In terminal *cd* into that directory.
-3. To create a Maven project, run the command: ```mvn archetype:generate  -DarchetypeArtifactId=maven-archetype-quickstart```. The Maven creator will ask a series of questions. Choose the options below.
-   - Group ID: ```org.alfresco```
-   - Artifact ID: ```oop-hello-world```
-   - Version: ```0.8```
-   - Package ID: _press ENTER_
-   - ```Y```
-        * This will create a folder with a POM file and Java folder structure.
-4. In your JDE, select **File > Open** and navigate to the POM.xml file created in the previous step. Once selected, press the **Open as Project** button on the next popup.
-5. Open the POM file by selecting from the left heirarchy panel.
-6. Copy the below XML code and replace the code in your POM file.
-      ```
-         <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-         <modelVersion>4.0.0</modelVersion>
-         
-         <parent>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-parent</artifactId>
-          <version>3.3.2</version>
-          <relativePath/>
-         </parent>
-         
-         <groupId>org.alfresco</groupId>
-         <artifactId>oop-hello-world</artifactId>
-         <packaging>jar</packaging>
-         <version>0.8</version>
-         <name>oop-hello-world</name>
-         <url>http://maven.apache.org</url>
-         <properties>
-          <maven.compiler.source>17</maven.compiler.source>
-          <maven.compiler.target>17</maven.compiler.target>
-          <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-         </properties>
-         <repositories>
-          <repository>
-            <id>alfresco-public</id>
-            <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
-          </repository>
-         </repositories>
-         <dependencies>
-          <dependency>
-            <groupId>org.alfresco</groupId>
-            <artifactId>alfresco-java-event-api-spring-boot-starter</artifactId>
-            <version>6.2.0</version>
-          </dependency>
-          <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-          </dependency>
-         </dependencies>
-         <build>
-          <plugins>
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-            <plugin>
-              <groupId>org.springframework.boot</groupId>
-              <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-          </plugins>
-         </build>
-         </project> 
-      ```
-8. Create a new directory in the _main_ folder titled: ```resources```.
-9. Create a new file in the _resources_ folder named: ```application.properties```.
-10. Paste the following code into the _application.properties_ file.
-      ```
-         spring.activemq.brokerUrl=tcp://localhost:61616
-         spring.jms.cache.enabled=false
-         alfresco.events.enableSpringIntegration=false
-         alfresco.events.enableHandlers=true
-      ```
-11. Open the _App.java_ file located in the dir: _src > main > java > org.alfresco_.
-12. Add the first spring famework import. Add the lines below.
-    - ```import org.springframework.boot.SpringApplication;```
-    - You may need to add the Maven dependency. Roll over each import and choose from the actions menu. In the popup window, select **Search for Class**, then **Try updating Maven indexes**.
-13. Add the next few imports below.
-      ```
-         import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-         import org.springframework.boot.autoconfigure.SpringBootApplication;
-         import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
-      ```
-    - Add Maven dependencies if necessary.
-14. 
+    }
+  ```
+* You may need to implement the methods for this class by holding the mouse cursoer over the implement statement and select _Implement methods_ from the popup (implement the handle event).
+* Add ```@Component``` just before the class statement.
+
+### Create a LOGGER
+* Add the following line of code to the class:
+  ```
+    private static final Logger LOGGER = LoggerFactory.getLogger(NodeUpdatedHandler.class);
+  ```
+* If the code shows errors, hold the mouse cursor over the error and choose to _add imports_. You should have the _Logger_ and _LoggerFactory_ imports.
+  
+### Code the Handler
+* Add the following script to the _handleEvent_ function:
+  ```
+    final NodeResource nodeResource = (NodeResource) event.getData().getResource();
+  ```
+* Add a Logger command to the _handleEvent_ just after the _nodeResource_ variable:
+  ```
+    LOGGER.info("\n\n ** DATA: "+event.getData());
+  ```
+* Add the following _if statement_ to single out events that contain content.
+  ```
+    if (((NodeResource) event.getData().getResourceBefore()).getContent() != null) {
+
+    }
+  ```
+* **Note:** A document node in ACS has associated nodes that will update when a change is made to the document, causing the Updated handler event to execute mutliple times. By ensuring that the _getContent_ attribute of the _getResourceBefore_ attribute of the edited node is **not** null, we can single out responses that are referring to the content node.
+* Add the following line of code inside the if statement:
+  ```
+    System.out.println("This content has been modified. ");
+  ```
+* Add the following function to your )handleEvent_ class below the "if" statement:
+  ```
+    @Override
+    public EventFilter getEventFilter() {
+        return IsFileFilter.get();
+    }
+  ```
+* **Note:** The _EventFilter_ function will override and filter out all responses that are **not** files. This will ensure that we only get file-related responses.
+
+### Deploy the Java App and test the EventHandler 
+* With your alfresco environment running, execute both of these commands in your Terminal window to run your java application:
+  ```
+    mvn package
+  ```
+  ```
+    java -jar target/oop-*.jar
+  ```
+* In your Alfresco environment, **log in as an Admin** and create a Site if you do not have one already. 
+* Create a plain text file in the Document Library of your site titled: ```Created by Admin```.
+* Edit the file's content within Share.
+* Go back to your Terminal window in your JDE to view the printed results.
+    * **Note:** You should see each returned data block from the _LOGGER_ command that is printing the event data, however only one of those blocks should be followed by the _"This content has been modified."_ system print comment added within the "if" statement.
+* Stop the Java application by using ```CTRL+C``` inside the Terminal window.
+
+### Apply conditional logic that checks if a document was edited by someone other than creator
+* Add the following "if" statement nested inside of your current "if" statement:
+  ```
+    if (!nodeResource.getModifiedByUser().getId().equals(nodeResource.getCreatedByUser().getId()))
+    {
+
+    }
+  ```
+* **Note:** The above "if" statement compares the _CreatedBy_ user ID to the _ModifiedBy_ user ID to determine if the ID's are **not** the same. This will allow you to perform logic against content nodes (documents) that have been edited by a user other than the creator.
+
+### Deploy the Java App and test the conditional logic 
+*  Add the following "print" command inside the new "if" statement to print a message to the Terminal:
+  ```
+    System.out.println("This doc was modified by someone other than creator!");
+  ```
+* With your alfresco environment running, execute both of these commands in your Terminal window to run your java application:
+  ```
+    mvn package
+  ```
+  ```
+    java -jar target/oop-*.jar
+  ```
+* In your Alfresco environment create a new user and add that user to the Site you're using to test.
+* Log out and log back in as this new user.
+* Navigate to the _Created by Admin_ document created earlier and edit the document adding a line to the body: ```Edited by other user.```.
+* Go back to the Terminal window in your JDE. You should see response blocks from the _LOGGER_ command as before, and that one of them contains the added text from the "if" statements: _"This content has been modified."_ and _"This doc was modified by someone other than creator!"_.
+* Stop the Java application by using ```CTRL+C``` inside the Terminal window.
+
+### Apply a Comment action to documents edited by users other than their creator
+* Add the following dependencies to your pom.xml file in the dependencies section:
+  ```
+    <dependency>
+      <groupId>org.alfresco</groupId>
+      <artifactId>alfresco-acs-java-rest-api-spring-boot-starter</artifactId>
+      <version>6.2.0</version>
+    </dependency>
+  ```
+* Reload the pom.xml file by right-clicking and selcting: _Maven > Reload project_. (This may take a few minutes).
+* Open the _aaplication.properties_ file and add the following lines of code:
+  ```
+    # Location of the server and API endpoints
+    content.service.url=http://localhost:8080
+    
+    # HTTP Basic Authentication that will be used by the API
+    content.service.security.basicAuth.username=admin
+    content.service.security.basicAuth.password=admin
+  ```
+* Go back to your _NodeUpdatedHandler.java_ file and add the following imports that will allow the usage of Comments in the Java class:
+  ```
+    import org.alfresco.core.handler.CommentsApi;
+    import org.alfresco.core.model.CommentBody;
+  ```
+* Add the variable declaration to the class:
+  ```
+    @Autowired
+    CommentsApi commentsApi;
+  ```
+* Inside of the second, nested "if" statement, add the following lines of code:
+  ```
+    CommentBody commentBody = new CommentBody();
+    commentBody.setContent("Edited by user: "+nodeResource.getModifiedByUser().getId());
+    commentsApi.createComment(nodeResource.getId(), commentBody, null);
+  ```
+* **Note:** The actions here will create a new comment on the document with the following text: _"edited by user: [user name]"_.
+
+### Deploy the Java App and test the Comment action execution 
+*  Add the following "print" command inside the new "if" statement to print a message to the Terminal:
+  ```
+    System.out.println("This doc was modified by someone other than creator!");
+  ```
+* With your alfresco environment running, execute both of these commands in your Terminal window to run your java application:
+  ```
+    mvn package
+  ```
+  ```
+    java -jar target/oop-*.jar
+  ```
+* Log in as the new user created earlier.
+* Navigate to the _Created by Admin_ document created earlier and edit the document adding a line to the body: ```Edited by other user.```.
+* Refresh the document page and look below the document at the comments section. You should see a new comment with the _"Edited by user: [user name]"_ comment.
+* Stop the Java application by using ```CTRL+C``` inside the Terminal window.
