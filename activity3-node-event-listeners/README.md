@@ -12,9 +12,19 @@ For this activity, you must use **your environment from the end state of activit
 ## Create a _NodeUpdatedHandler_ Java Class
 ### Imports and Implements
 * Create a new Java class file titled ```NodeUpdatedHandler``` in the following path: _src > main > java > org.alfresco > handler_.
-* Add the following import:
+* Add the following imports:
   ```
+    import org.alfresco.core.handler.CommentsApi;
+    import org.alfresco.core.model.CommentBody;
+    import org.alfresco.event.sdk.handling.filter.EventFilter;
+    import org.alfresco.event.sdk.handling.filter.IsFileFilter;
     import org.alfresco.event.sdk.handling.handler.OnNodeUpdatedEventHandler;
+    import org.alfresco.repo.event.v1.model.*;
+    import org.slf4j.Logger;
+    import org.slf4j.LoggerFactory;
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.stereotype.Component;
+    import java.util.Set;
   ```
 * Change the class function to this:
   ```
