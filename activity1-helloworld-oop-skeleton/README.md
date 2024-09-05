@@ -1,5 +1,3 @@
-# Create an Alfresco Out-of-Process Skeleton (Hello World)
-
 ## Activity #1: Build an Out-of-Process Skeleton Project
 By the end of this activity, you should be able to:
 *  Start a Java SDK Extensioin Project
