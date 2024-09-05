@@ -10,10 +10,23 @@ For this activity, you must use **your environment from the end state of activit
 * When the project is opened and any dependency errors are resolved, continue to the next section _(Create a _NodeUpdatedHandler_ Java Class)_.
 
 ## Create a _NodeUpdatedHandler_ Java Class
-### Imports and Implements
-* Create a new Java class file titled ```NodeUpdatedHandler``` in the following path: _src > main > java > org.alfresco > handler_.
-* Add the following imports:
+### Dependencies
+* Add the following dependency to your **pom.xml** in the main dependency tag:
   ```
+    <dependency>
+      <groupId>org.alfresco</groupId>
+      <artifactId>alfresco-acs-java-rest-api-spring-boot-starter</artifactId>
+      <version>6.2.0</version>
+    </dependency>
+  ```
+* Save the pom.xml file and **Reload project** using the right-click menu on the pm.xml file in the left panel.
+
+### Build NodeUpdatedHandler Java Class
+* Create a new Java class file titled ```NodeUpdatedHandler``` in the following path: _src > main > java > org.alfresco > handler_.
+* Remove **all** of the code within the file and paste the following code into the file:
+  ```
+    package org.alfresco.handler;
+
     import org.alfresco.core.handler.CommentsApi;
     import org.alfresco.core.model.CommentBody;
     import org.alfresco.event.sdk.handling.filter.EventFilter;
@@ -25,25 +38,33 @@ For this activity, you must use **your environment from the end state of activit
     import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.stereotype.Component;
     import java.util.Set;
-  ```
-* Change the class function to this:
-  ```
+    
+    @Component
     public class NodeUpdatedHandler implements OnNodeUpdatedEventHandler {
-
+    
+        private static final Logger LOGGER = LoggerFactory.getLogger(NodeUpdatedHandler.class);
+        @Autowired
+        CommentsApi commentsApi;
+    
+        @Override
+        public void handleEvent(RepoEvent<DataAttributes<Resource>> event) {
+            
+        }
+    
+        @Override
+        public EventFilter getEventFilter() {
+            return IsFileFilter.get();
+        }
+    
+        // https://github.com/Alfresco/alfresco-java-sdk/blob/develop/samples/event-api-handlers/src/main/java/org/alfresco/sdk/sample/event/handler/MultipleEventTypeHandler.java
+        @Override
+        public Set<EventType> getHandledEventTypes() {
+            return OnNodeUpdatedEventHandler.super.getHandledEventTypes();
+        }
     }
-  ```
-* You may need to implement the methods for this class by holding the mouse cursoer over the implement statement and select _Implement methods_ from the popup (implement the handle event).
-* Add ```@Component``` just before the class statement.
 
-### Create a LOGGER
-* Add the following line of code to the class:
   ```
-    private static final Logger LOGGER = LoggerFactory.getLogger(NodeUpdatedHandler.class);
-  ```
-* If the code shows errors, hold the mouse cursor over the error and choose to _add imports_. You should have the _Logger_ and _LoggerFactory_ imports.
-  
-### Code the Handler
-* Add the following script to the _handleEvent_ function:
+* Declare a NodeResource variable inside of the **handleEvent** function:
   ```
     final NodeResource nodeResource = (NodeResource) event.getData().getResource();
   ```
@@ -79,7 +100,7 @@ For this activity, you must use **your environment from the end state of activit
   ```
     java -jar target/oop-*.jar
   ```
-* In your Alfresco environment, **log in as an Admin** and create a Site if you do not have one already. 
+* In your Alfresco environment, **log in as an Admin** and create a Site if you do not have one already (There may be a sample site already created - use that one if so). 
 * Create a plain text file in the Document Library of your site titled: ```Created by Admin```.
 * Edit the file's content within Share.
 * Go back to your Terminal window in your JDE to view the printed results.
@@ -95,12 +116,12 @@ For this activity, you must use **your environment from the end state of activit
     }
   ```
 * **Note:** The above "if" statement compares the _CreatedBy_ user ID to the _ModifiedBy_ user ID to determine if the ID's are **not** the same. This will allow you to perform logic against content nodes (documents) that have been edited by a user other than the creator.
-
-### Deploy the Java App and test the conditional logic 
 *  Add the following "print" command inside the new "if" statement to print a message to the Terminal:
   ```
     System.out.println("This doc was modified by someone other than creator!");
   ```
+
+### Deploy the Java App and test the conditional logic 
 * With your alfresco environment running, execute both of these commands in your Terminal window to run your java application:
   ```
     mvn package
@@ -115,15 +136,6 @@ For this activity, you must use **your environment from the end state of activit
 * Stop the Java application by using ```CTRL+C``` inside the Terminal window.
 
 ### Apply a Comment action to documents edited by users other than their creator
-* Add the following dependencies to your pom.xml file in the dependencies section:
-  ```
-    <dependency>
-      <groupId>org.alfresco</groupId>
-      <artifactId>alfresco-acs-java-rest-api-spring-boot-starter</artifactId>
-      <version>6.2.0</version>
-    </dependency>
-  ```
-* Reload the pom.xml file by right-clicking and selcting: _Maven > Reload project_. (This may take a few minutes).
 * Open the _aaplication.properties_ file and add the following lines of code:
   ```
     # Location of the server and API endpoints
@@ -132,16 +144,6 @@ For this activity, you must use **your environment from the end state of activit
     # HTTP Basic Authentication that will be used by the API
     content.service.security.basicAuth.username=admin
     content.service.security.basicAuth.password=admin
-  ```
-* Go back to your _NodeUpdatedHandler.java_ file and add the following imports that will allow the usage of Comments in the Java class:
-  ```
-    import org.alfresco.core.handler.CommentsApi;
-    import org.alfresco.core.model.CommentBody;
-  ```
-* Add the variable declaration to the class:
-  ```
-    @Autowired
-    CommentsApi commentsApi;
   ```
 * Inside of the second, nested "if" statement, add the following lines of code:
   ```
