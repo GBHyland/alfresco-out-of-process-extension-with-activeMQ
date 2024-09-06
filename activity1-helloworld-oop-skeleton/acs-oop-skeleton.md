@@ -164,23 +164,23 @@
          import org.springframework.boot.autoconfigure.SpringBootApplication;
          import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
       ```
-    - You may need to add the Maven dependency. Roll over each import and choose from the actions menu. In the popup window, select **Search for Class**, then **Try updating Maven indexes**.
-23. Add the following lines to your *App.java* file before the class.
+    - If you get errors associated with these imports, you may need to add the Maven dependency. Roll over each import and choose from the actions menu. In the popup window, select **Search for Class**, then **Try updating Maven indexes**.
+22. Add the following lines to your *App.java* file before the class.
       ```
       @SpringBootApplication
       @EnableAutoConfiguration(exclude={SecurityAutoConfiguration.class})
       ```
-24. Inside the class function, paste the following code over the default code:
+23. Inside the class function, paste the following code over the default code:
       ```
       public static void main( String[] args )
        {
            SpringApplication.run(App.class, args);
        }
       ```
-25. Create the _NodeCreatedHandler_ Java class by performaing the following steps:
+24. Create the _NodeCreatedHandler_ Java class by performaing the following steps:
     * Create a new package called **handler** at the following location: _src > java > org.alfresco > handler_ by right-clicking the _org.alfresco_ item in the left menu and selecting "new package". Name it ```org.alfresco.handler```.
     * Create a new Java Class titled ```NodeCreatedHandler``` inside the following _handler_ directory by right-clicking the _handler_ package and choosing **New > Java Class*. 
-26. Paste the following code into the **NodeCreatedHandler** java file:
+25. Paste the following code into the **NodeCreatedHandler** java file:
       ```
       package org.alfresco.handler;
       
@@ -198,12 +198,12 @@
       }
       
       ```
-27. Save all edited files. The skeleton environment is now ready to test.
-28. In Terminal, start your alfresco environment using the docker command:
+26. Save all edited files. The skeleton environment is now ready to test.
+27. In Terminal, start your alfresco environment using the docker command:
     ```
     docker compose up
     ```
-30. In your JDE, open a Terminal window and perform the following steps to package and run:
+28. In your JDE, open a Terminal window and perform the following steps to package and run:
     * Create a Java package using the command:
       ```
       mvn package
@@ -212,10 +212,10 @@
       ```
       java -jar target/oop-*.jar
       ```
-31. Open your browser to your alfreco environment at:
+29. Open your browser to your alfreco environment at:
     ```
     http://localhost:8080/share
     ```
-32. Navigate to the **shared files** section and create a text document.
+30. Navigate to the **shared files** section and create a text document.
     * Watch the output Terminal window in your JDE which should print the messsage: ```Hello World! [your_file_name]```.
     
