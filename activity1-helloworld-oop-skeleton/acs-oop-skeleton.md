@@ -219,7 +219,7 @@
 31. Open your browser to your alfreco environment at:
     ```
     http://localhost:8080/share
-    ```.
+    ```
 32. Navigate to the **shared files** section and create a text document.
     * Watch the output Terminal window in your JDE which should print the messsage: ```Hello World! [your_file_name]```.
     
