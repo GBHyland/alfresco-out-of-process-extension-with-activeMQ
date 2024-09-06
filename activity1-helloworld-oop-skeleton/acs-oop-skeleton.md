@@ -203,11 +203,23 @@
       
       ```
 27. Save all edited files. The skeleton environment is now ready to test.
-28. In Terminal, start your alfresco environment using the docker command: ```docker compose up```.
-29. In your JDE, open a Terminal window and perform the following steps to package and run:
-    * Create a Java package using the command: ```mvn package```.
-    * Run the Java package with the command: ```java -jar target/oop-*.jar```
-30. Open your browser to your alfreco environment at: ```http://localhost:8080/share```.
-31. Navigate to the **shared files** section and create a text document.
+28. In Terminal, start your alfresco environment using the docker command:
+    ```
+    docker compose up
+    ```
+30. In your JDE, open a Terminal window and perform the following steps to package and run:
+    * Create a Java package using the command:
+      ```
+      mvn package
+      ```
+    * Run the Java package with the command:
+      ```
+      java -jar target/oop-*.jar
+      ```
+31. Open your browser to your alfreco environment at:
+    ```
+    http://localhost:8080/share
+    ```.
+32. Navigate to the **shared files** section and create a text document.
     * Watch the output Terminal window in your JDE which should print the messsage: ```Hello World! [your_file_name]```.
     
