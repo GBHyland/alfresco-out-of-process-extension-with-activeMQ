@@ -9,3 +9,5 @@
 * Start a Java SDK Extensioin Project
 * Create a Node Event Listener class that consumes ActiveMQ messages
 * Recall the difference between Alfresco Community and Enterprise ActiveMQ messages
+
+Select the ***acs-oop-skeleton.md** in this folder to start the activity.
