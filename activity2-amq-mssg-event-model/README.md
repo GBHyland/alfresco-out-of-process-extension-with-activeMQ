@@ -3,3 +3,4 @@
 * In this activity you will produce ActiveMQ message logs in both Community and Enterprise editions of Alfresco to examine the difference in data.
 * You may also examine the ACS Event Models in order to get a better understanding of the important data for each event.
    
+Select the ***event-logger.md** in this folder to start the activity.
