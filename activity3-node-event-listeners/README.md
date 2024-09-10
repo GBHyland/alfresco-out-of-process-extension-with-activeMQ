@@ -8,4 +8,4 @@
 * Create a Node Updated Handler Class and consume ActiveMQ Update events
 * Implement logic and perform actiions within your Alfresco repository
 
-Select the ***acs-node-event-listener.md** in this folder to start the activity.
+Select the **acs-node-event-listener.md** in this folder to start the activity.
