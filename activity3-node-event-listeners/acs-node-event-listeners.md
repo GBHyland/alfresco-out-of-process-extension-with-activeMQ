@@ -150,10 +150,6 @@ For this activity, you must use **your environment from the end state of activit
 * **Note:** The actions here will create a new comment on the document with the following text: _"edited by user: [user name]"_.
 
 ### Deploy the Java App and test the Comment action execution 
-*  Add the following "print" command inside the new "if" statement to print a message to the Terminal:
-  ```
-    System.out.println("This doc was modified by someone other than creator!");
-  ```
 * With your alfresco environment running, execute both of these commands in your Terminal window to run your java application:
   ```
     mvn package
