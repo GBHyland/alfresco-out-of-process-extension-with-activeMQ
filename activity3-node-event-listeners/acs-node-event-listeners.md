@@ -130,9 +130,7 @@ For this activity, you must use **your environment from the end state of activit
 
 
 ### Apply a Comment action to documents edited by users other than their creator
-* Note to GB: add false > true
-* Note to GB: Add comment lines 19, 20
-* Open the _aaplication.properties_ file and add the following lines of code:
+* Open the _aplication.properties_ file and add the following lines of code:
   ```
     # Location of the server and API endpoints
     content.service.url=http://localhost:8080
@@ -141,7 +139,16 @@ For this activity, you must use **your environment from the end state of activit
     content.service.security.basicAuth.username=admin
     content.service.security.basicAuth.password=admin
   ```
-* Inside of the second, nested "if" statement, add the following lines of code:
+* in the _aplication.properties_ file, find the line below and change its value to ```true```:
+  ```
+    alfresco.events.enableSpringIntegration=false
+  ```
+* In the **NodeUpdatedHandler** java file, just befoer the _handleEvent_ function, add the folowing lines of code:
+  ```
+    @Autowired
+    CommentsApi commentsApi;
+  ```
+* In the **NodeUpdatedHandler** java file, inside of the second nested "if" statement, add the following lines of code:
   ```
     CommentBody commentBody = new CommentBody();
     commentBody.setContent("Edited by user: "+nodeResource.getModifiedByUser().getId());
