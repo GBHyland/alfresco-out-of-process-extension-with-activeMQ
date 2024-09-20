@@ -130,6 +130,8 @@ For this activity, you must use **your environment from the end state of activit
 
 
 ### Apply a Comment action to documents edited by users other than their creator
+* Note to GB: add false > true
+* Note to GB: Add comment lines 19, 20
 * Open the _aaplication.properties_ file and add the following lines of code:
   ```
     # Location of the server and API endpoints
