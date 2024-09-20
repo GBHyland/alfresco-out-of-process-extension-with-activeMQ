@@ -11,6 +11,17 @@ For this activity, you must use **your environment from the end state of activit
 
 ## Create a _NodeUpdatedHandler_ Java Class
 
+### Dependencies
+* Add the following dependency to your **pom.xml** in the main dependency tag:
+  ```
+    <dependency>
+      <groupId>org.alfresco</groupId>
+      <artifactId>alfresco-acs-java-rest-api-spring-boot-starter</artifactId>
+      <version>6.2.0</version>
+    </dependency>
+  ```
+* Save the pom.xml file and **Reload project** using the right-click menu on the pm.xml file in the left panel.
+
 ### Build NodeUpdatedHandler Java Class
 * Create a new Java class file titled ```NodeUpdatedHandler``` in the following path: _src > main > java > org.alfresco > handler_.
 * Remove **all** of the code within the file and paste the following code into the file:
@@ -125,17 +136,7 @@ For this activity, you must use **your environment from the end state of activit
 * Go back to the Terminal window in your JDE. You should see response blocks from the _LOGGER_ command as before, and that one of them contains the added text from the "if" statements: _"This content has been modified."_ and _"This doc was modified by someone other than creator!"_.
 * Stop the Java application by using ```CTRL+C``` inside the Terminal window.
 
-### Dependencies
-* Add the following dependency to your **pom.xml** in the main dependency tag:
-  ```
-    <dependency>
-      <groupId>org.alfresco</groupId>
-      <artifactId>alfresco-acs-java-rest-api-spring-boot-starter</artifactId>
-      <version>6.2.0</version>
-    </dependency>
-  ```
-* Save the pom.xml file and **Reload project** using the right-click menu on the pm.xml file in the left panel.
-  
+
 ### Apply a Comment action to documents edited by users other than their creator
 * Open the _aaplication.properties_ file and add the following lines of code:
   ```
