@@ -11,6 +11,17 @@ For this activity, you must use **your environment from the end state of activit
 
 ## Create a _NodeUpdatedHandler_ Java Class
 
+### Dependencies
+* Add the following dependency to your **pom.xml** in the main dependency tag:
+  ```
+    <dependency>
+      <groupId>org.alfresco</groupId>
+      <artifactId>alfresco-acs-java-rest-api-spring-boot-starter</artifactId>
+      <version>6.2.0</version>
+    </dependency>
+  ```
+* Save the pom.xml file and **Reload project** using the right-click menu on the pm.xml file in the left panel.
+
 ### Build NodeUpdatedHandler Java Class
 * Create a new Java class file titled ```NodeUpdatedHandler``` in the following path: _src > main > java > org.alfresco > handler_.
 * Remove **all** of the code within the file and paste the following code into the file:
@@ -73,14 +84,6 @@ For this activity, you must use **your environment from the end state of activit
   ```
     System.out.println("This content has been modified. ");
   ```
-* Add the following function to your )handleEvent_ class below the "if" statement:
-  ```
-    @Override
-    public EventFilter getEventFilter() {
-        return IsFileFilter.get();
-    }
-  ```
-* **Note:** The _EventFilter_ function will override and filter out all responses that are **not** files. This will ensure that we only get file-related responses.
 
 ### Deploy the Java App and test the EventHandler 
 * With your alfresco environment running, execute both of these commands in your Terminal window to run your java application:
@@ -125,19 +128,9 @@ For this activity, you must use **your environment from the end state of activit
 * Go back to the Terminal window in your JDE. You should see response blocks from the _LOGGER_ command as before, and that one of them contains the added text from the "if" statements: _"This content has been modified."_ and _"This doc was modified by someone other than creator!"_.
 * Stop the Java application by using ```CTRL+C``` inside the Terminal window.
 
-### Dependencies
-* Add the following dependency to your **pom.xml** in the main dependency tag:
-  ```
-    <dependency>
-      <groupId>org.alfresco</groupId>
-      <artifactId>alfresco-acs-java-rest-api-spring-boot-starter</artifactId>
-      <version>6.2.0</version>
-    </dependency>
-  ```
-* Save the pom.xml file and **Reload project** using the right-click menu on the pm.xml file in the left panel.
-  
+
 ### Apply a Comment action to documents edited by users other than their creator
-* Open the _aaplication.properties_ file and add the following lines of code:
+* Open the _aplication.properties_ file and add the following lines of code:
   ```
     # Location of the server and API endpoints
     content.service.url=http://localhost:8080
@@ -146,7 +139,16 @@ For this activity, you must use **your environment from the end state of activit
     content.service.security.basicAuth.username=admin
     content.service.security.basicAuth.password=admin
   ```
-* Inside of the second, nested "if" statement, add the following lines of code:
+* in the _aplication.properties_ file, find the line below and change its value to ```true```:
+  ```
+    alfresco.events.enableSpringIntegration=false
+  ```
+* In the **NodeUpdatedHandler** java file, just befoer the _handleEvent_ function, add the folowing lines of code:
+  ```
+    @Autowired
+    CommentsApi commentsApi;
+  ```
+* In the **NodeUpdatedHandler** java file, inside of the second nested "if" statement, add the following lines of code:
   ```
     CommentBody commentBody = new CommentBody();
     commentBody.setContent("Edited by user: "+nodeResource.getModifiedByUser().getId());
@@ -155,10 +157,6 @@ For this activity, you must use **your environment from the end state of activit
 * **Note:** The actions here will create a new comment on the document with the following text: _"edited by user: [user name]"_.
 
 ### Deploy the Java App and test the Comment action execution 
-*  Add the following "print" command inside the new "if" statement to print a message to the Terminal:
-  ```
-    System.out.println("This doc was modified by someone other than creator!");
-  ```
 * With your alfresco environment running, execute both of these commands in your Terminal window to run your java application:
   ```
     mvn package

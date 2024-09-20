@@ -14,9 +14,16 @@
       import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
       import org.springframework.integration.dsl.IntegrationFlow;
       import org.springframework.context.annotation.Bean;
+      import org.alfresco.event.sdk.handling.filter.EventTypeFilter;
+      import org.alfresco.event.sdk.handling.filter.NodeTypeFilter;
+      import org.alfresco.event.sdk.integration.EventChannels;
+      import org.slf4j.Logger;
+      import org.slf4j.LoggerFactory;
+      import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
    ```
 3. In the class, add the following function:
    ```
+      private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
       @Bean
       public IntegrationFlow logTheCreationOfNodesOfTypeContent() {
         return IntegrationFlow.from(EventChannels.MAIN)
