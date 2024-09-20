@@ -84,14 +84,6 @@ For this activity, you must use **your environment from the end state of activit
   ```
     System.out.println("This content has been modified. ");
   ```
-* Add the following function to your )handleEvent_ class below the "if" statement:
-  ```
-    @Override
-    public EventFilter getEventFilter() {
-        return IsFileFilter.get();
-    }
-  ```
-* **Note:** The _EventFilter_ function will override and filter out all responses that are **not** files. This will ensure that we only get file-related responses.
 
 ### Deploy the Java App and test the EventHandler 
 * With your alfresco environment running, execute both of these commands in your Terminal window to run your java application:
