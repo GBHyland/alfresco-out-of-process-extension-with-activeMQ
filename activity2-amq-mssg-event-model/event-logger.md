@@ -19,7 +19,6 @@
       import org.alfresco.event.sdk.integration.EventChannels;
       import org.slf4j.Logger;
       import org.slf4j.LoggerFactory;
-      import org.alfresco.event.sdk.integration.EventChannels;
       import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
    ```
 3. In the class, add the following function:
