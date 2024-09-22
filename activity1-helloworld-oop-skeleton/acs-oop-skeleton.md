@@ -212,6 +212,9 @@
       ```
       java -jar target/oop-*.jar
       ```
+      ```
+      java -jar target/oop-hello-world-0.8.jar
+      ```
 29. Open your browser to your alfreco environment at:
     ```
     http://localhost:8080/share
