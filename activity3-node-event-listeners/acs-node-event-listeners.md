@@ -44,9 +44,7 @@ For this activity, you must use **your environment from the end state of activit
     public class NodeUpdatedHandler implements OnNodeUpdatedEventHandler {
     
         private static final Logger LOGGER = LoggerFactory.getLogger(NodeUpdatedHandler.class);
-        @Autowired
-        CommentsApi commentsApi;
-    
+        
         @Override
         public void handleEvent(RepoEvent<DataAttributes<Resource>> event) {
             
