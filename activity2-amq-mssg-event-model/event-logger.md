@@ -6,7 +6,12 @@
       # Set the logging level to DEBUG
       logging.level.org.alfresco.event.sdk.integration.transformer.EventGenericTransformer=DEBUG
    ```
-2. open the **App.java** file and add the following imports:
+2. In the **application.properties** file, change the **alfresco.events.enableSpringIntegration** value to TRUE.
+   ```
+      alfresco.events.enableSpringIntegration=true
+   ```
+
+4. open the **App.java** file and add the following imports:
    ```
       import org.springframework.boot.SpringApplication;
       import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -21,7 +26,7 @@
       import org.slf4j.LoggerFactory;
       import org.alfresco.event.sdk.integration.filter.IntegrationEventFilter;
    ```
-3. In the class, add the following function:
+5. In the class, add the following function:
    ```
       private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
       @Bean
