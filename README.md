@@ -1,7 +1,8 @@
 ## Alfresco Out-of-Process Extension Project with ActiveMQ Messaging
 
 ### Necessary for this Project
-1. Quay.io Alfresco account (to pull enterprise images)
+1. Docker Compose
+2. Quay.io Alfresco account (to pull enterprise images)
    * If you do not have a Quay.io account, obtain trial credentials by following these steps:
      * Visit the following url and submit the form. Provide an email address you can access. Quay.io trial credentials will be emailed to the address you provide.
          ```
